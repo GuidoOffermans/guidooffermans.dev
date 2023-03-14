@@ -1,7 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Fragment } from "preact/jsx-runtime";
+import { h, Fragment } from "preact";
 
-export function MobileMenu() {
+export const MobileMenu = () => {
   return (
     <Popover className="relative">
       {({ open }: { open: boolean }) => (
@@ -40,4 +40,4 @@ export function MobileMenu() {
       )}
     </Popover>
   );
-}
+};
