@@ -1,0 +1,53 @@
+# System files
+# ------------
+Icon
+.DS_Store
+.env
+
+# Unbuild CSS
+/public/assets/css/*
+
+# Temporary files
+# ---------------
+/public/media/*
+!/public/media/index.html
+
+# Vendor Items
+# ---------------
+/kirby
+/vendor
+/node_modules
+
+# Content
+# ---------------
+/content/*
+
+# Lock files
+# ---------------
+.lock
+
+# Editors
+# (sensitive workspace files)
+# ---------------------------
+*.sublime-workspace
+/.vscode
+/.idea
+
+# -------------SECURITY-------------
+# NEVER publish these files via Git!
+# -------------SECURITY-------------
+
+# Storage Files
+# ---------------
+/storage/cache/*
+!/storage/cache/index.html
+
+/storage/accounts/*
+!/storage/accounts/index.html
+
+/storage/sessions/*
+!/storage/sessions/index.html
+
+# License
+# ---------------
+/site/config/.license

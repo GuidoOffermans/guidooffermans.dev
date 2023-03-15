@@ -1,0 +1,39 @@
+name: 'Deploy on push'
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/README.md'
+
+jobs:
+  ploi-deploy:
+    name: 'Ploi Deploy'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v3
+
+    - name: go into kirbyCMS
+      run: |
+            cd app
+
+    - name: Install dependencies
+      uses: php-actions/composer@v6
+      with:
+        php_version: "8.1"
+        php_extensions: gd ctype curl mbstring
+        version: 2
+
+    - name: Cache Composer dependencies
+      uses: actions/cache@v3
+      with:
+        path: /tmp/composer-cache
+        key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+    - name: Deploy
+      uses: Glennmen/ploi-deploy-action@v1.2.0
+      with:
+        webhook_url: ${{ secrets.WEBHOOK_URL }}

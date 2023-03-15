@@ -1,0 +1,30 @@
+---
+import { Menu } from "../components/Menu";
+import { MobileMenu } from "../components/MobileMenu";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="min-h-full min-w-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="portfolio, website" />
+    <meta name="author" content="Guido Offermans" />
+  </head>
+  <body>
+    <Menu />
+    <MobileMenu client:only="preact" />
+    <slot />
+  </body>
+</html>
