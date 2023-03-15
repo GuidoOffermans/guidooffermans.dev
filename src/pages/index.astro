@@ -1,26 +1,27 @@
 ---
 import { ExternalLinks } from "../components/ExternalLinks";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
 
-type Project = {	
+type Project = {
   title: string;
-  image: string;
+  imageUrl: any;
 };
 
 const projects: Project[] = [
   {
     title: "Project 1",
-    image:
+    imageUrl:
       "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Project 2",
-    image:
+    imageUrl:
       "https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
   {
     title: "Project 3",
-    image:
+    imageUrl:
       "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
   },
 ];
@@ -53,7 +54,14 @@ const projects: Project[] = [
               <div class="flex flex-col md:flex-row md:h-40 w-full bg-white p-3 md:p-8 gap-2 md:hover:bg-slate-200">
                 <p class="hidden md:block p-2">/0{index + 1}</p>
                 <h3 class="md:text-8xl">{project?.title}</h3>
-                <img class="aspect-square md:hidden" src={project?.image} />
+                <Image
+                  class="aspect-square md:hidden items-center"
+                  src={project?.imageUrl}
+                  alt={project?.title}
+                  width={780}
+                  aspectRatio="1:1"
+                  format="webp"
+                />
               </div>
             );
           })
