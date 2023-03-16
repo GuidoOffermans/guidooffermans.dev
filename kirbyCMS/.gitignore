@@ -2,7 +2,7 @@
 # ------------
 Icon
 .DS_Store
-.env
+../.env
 
 # Unbuild CSS
 /public/assets/css/*
