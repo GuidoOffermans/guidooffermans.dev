@@ -18,7 +18,7 @@ jobs:
 
     - name: go into kirbyCMS
       run: |
-            cd app
+            cd kirbyCMS
 
     - name: Install dependencies
       uses: php-actions/composer@v6
