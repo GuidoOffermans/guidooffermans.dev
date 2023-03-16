@@ -22,6 +22,10 @@ jobs:
         php-version: '8.1'
         extensions: gd ctype curl mbstring
         tools: composer
+        
+     
+    - name: Print php and composer versions
+      run: php -v && composer -v
 
     - name: Deploy
       uses: Glennmen/ploi-deploy-action@v1.2.0
