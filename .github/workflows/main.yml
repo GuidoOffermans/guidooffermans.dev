@@ -26,8 +26,11 @@ jobs:
      
     - name: Print php and composer versions
       run: php -v && composer -v
+      
+    - name: Composer install
+      run: cd kirbyCMS && composer install --no-interaction --prefer-dist --optimize-autoloader
 
-    - name: Deploy
+    - name: Deploy to staging.
       uses: Glennmen/ploi-deploy-action@v1.2.0
       with:
         webhook_url: ${{ secrets.WEBHOOK_URL }}
